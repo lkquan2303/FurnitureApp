@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:furniture_app/models/product.dart';
 import 'package:http/http.dart' as http;
 
 // Fetch our Products from API
