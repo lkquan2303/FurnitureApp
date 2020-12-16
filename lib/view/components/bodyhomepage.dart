@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/components/title_text.dart';
-import 'package:furniture_app/constants.dart';
+import 'package:furniture_app/models/categories.dart';
+import 'categories_card.dart';
 
 class BodyHomepage extends StatelessWidget {
   @override
@@ -14,50 +15,11 @@ class BodyHomepage extends StatelessWidget {
               title: "Browse by Categories",
             ),
           ),
-          SizedBox(
-            width: 205,
-            child: AspectRatio(
-              aspectRatio: 0.83,
-              child: Stack(
-                alignment: Alignment.bottomCenter,
-                children: [
-                  Container(
-                    color: Colors.blueAccent,
-                  ),
-                  ClipPath(
-                    clipper: CategoryCustomShape(),
-                    child: AspectRatio(
-                      aspectRatio: 1.025,
-                      child: Container(color: kSecondaryColor),
-                    ),
-                  )
-                ],
-              ),
-            ),
+          CategoryCard(
+            categories: category,
           )
         ],
       ),
     );
-  }
-}
-
-class CategoryCustomShape extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = Path();
-    double height = size.height;
-    double width = size.width;
-    int cornerSize = 30;
-
-    path.lineTo(0, height - cornerSize);
-
-    path.lineTo(width, height);
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    return true;
   }
 }
