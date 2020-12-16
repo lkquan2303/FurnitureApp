@@ -9,38 +9,31 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      appBar: buildAppBar(),
-      body: BodyHomepage(),
-    );
-  }
-
-  AppBar buildAppBar() {
-    return AppBar(
-      leading: IconButton(
-        icon: SvgPicture.asset(
-          "assets/icons/menu.svg",
-          height: SizeConfig.defaultSize * 2,
-        ),
-        onPressed: () {},
-      ),
-      actions: <Widget>[
-        IconButton(
+      appBar: AppBar(
+        leading: IconButton(
           icon: SvgPicture.asset(
-            "assets/icons/scan.svg",
-            height: SizeConfig.defaultSize * 2.4,
+            "assets/icons/menu.svg",
+            height: SizeConfig.defaultSize * 2,
           ),
           onPressed: () {},
         ),
-        Center(
-          child: Text(
-            "Scan",
-            style: TextStyle(color: kTextColor, fontWeight: FontWeight.bold),
+        actions: <Widget>[
+          IconButton(
+              icon: SvgPicture.asset(
+                "assets/icons/scan.svg",
+                height: SizeConfig.defaultSize * 2.4,
+              ),
+              onPressed: () {}),
+          Center(
+            child: Text(
+              "Scan",
+              style: TextStyle(color: kTextColor, fontWeight: FontWeight.bold),
+            ),
           ),
-        ),
-        SizedBox(
-          width: SizeConfig.defaultSize,
-        )
-      ],
+          SizedBox(width: SizeConfig.defaultSize)
+        ],
+      ),
+      body: BodyHomepage(),
     );
   }
 }
