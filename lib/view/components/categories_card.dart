@@ -11,7 +11,7 @@ class CategoryCard extends StatelessWidget {
     Key key,
     @required this.categories,
   }) : super(key: key);
-  final Categories categories;
+  final Category categories;
   @override
   Widget build(BuildContext context) {
     return SizedBox(

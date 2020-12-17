@@ -1,12 +1,12 @@
-class Categories {
+class Category {
   final String id, title, image;
   final int numofProducts;
 
-  Categories({this.id, this.title, this.image, this.numofProducts});
+  Category({this.id, this.title, this.image, this.numofProducts});
 
   // Create Json Category fie
-  factory Categories.fromJson(Map<String, dynamic> json) {
-    return Categories(
+  factory Category.fromJson(Map<String, dynamic> json) {
+    return Category(
       id: json["id"],
       title: json["title"],
       image: json["image"],
@@ -15,7 +15,7 @@ class Categories {
   }
 }
 
-Categories category = Categories(
+Category category = Category(
   id: "1",
   title: "Armchair",
   image: "https://i.imgur.com/JqKDdxj.png",
