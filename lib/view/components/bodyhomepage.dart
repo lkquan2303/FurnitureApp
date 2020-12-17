@@ -15,8 +15,21 @@ class BodyHomepage extends StatelessWidget {
               title: "Browse by Categories",
             ),
           ),
-          CategoryCard(
-            categories: category,
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                CategoryCard(
+                  categories: category,
+                ),
+                CategoryCard(
+                  categories: category,
+                ),
+                CategoryCard(
+                  categories: category,
+                ),
+              ],
+            ),
           )
         ],
       ),
