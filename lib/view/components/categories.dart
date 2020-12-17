@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/models/categories.dart';
-
 import 'categories_card.dart';
 
 class Categories extends StatelessWidget {
@@ -14,12 +13,14 @@ class Categories extends StatelessWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-          children: List.generate(
-              categories.length,
-              (index) => Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: CategoryCard(categories: categories[index]),
-                  ))),
+        children: List.generate(
+          categories.length,
+          (index) => Padding(
+            padding: const EdgeInsets.all(10),
+            child: CategoryCard(categories: categories[index]),
+          ),
+        ),
+      ),
     );
   }
 }
