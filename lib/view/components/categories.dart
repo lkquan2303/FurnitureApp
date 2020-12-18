@@ -7,6 +7,7 @@ class Categories extends StatelessWidget {
     Key key,
     this.categories,
   }) : super(key: key);
+
   final List<Category> categories;
   @override
   Widget build(BuildContext context) {

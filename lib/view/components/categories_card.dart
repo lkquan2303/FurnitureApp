@@ -45,15 +45,17 @@ class CategoryCard extends StatelessWidget {
               ),
             ),
             Positioned(
-                top: 0,
-                left: 0,
-                right: 0,
-                child: AspectRatio(
-                  aspectRatio: 1.15,
-                  child: FadeInImage.assetNetwork(
-                      placeholder: "assets/spinner.gif",
-                      image: categories.image),
-                ))
+              top: 0,
+              left: 0,
+              right: 0,
+              child: AspectRatio(
+                aspectRatio: 1.15,
+                child: FadeInImage.assetNetwork(
+                  placeholder: "assets/spinner.gif",
+                  image: categories.image,
+                ),
+              ),
+            )
           ],
         ),
       ),

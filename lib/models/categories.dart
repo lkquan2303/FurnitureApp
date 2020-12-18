@@ -10,7 +10,7 @@ class Category {
       id: json["id"],
       title: json["title"],
       image: json["image"],
-      numofProducts: json["numofProducts"],
+      numofProducts: json["numOfProducts"],
     );
   }
 }

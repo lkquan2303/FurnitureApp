@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/components/title_text.dart';
-import 'package:furniture_app/constants.dart';
-import 'package:furniture_app/models/product.dart';
 import 'package:furniture_app/services/fetchCategories.dart';
+import 'package:furniture_app/services/fetchProduct.dart';
+import 'package:furniture_app/view/components/product_list.dart';
 import 'categories.dart';
 
 class BodyHomepage extends StatelessWidget {
@@ -35,27 +35,12 @@ class BodyHomepage extends StatelessWidget {
               title: "Recommends For You",
             ),
           ),
-          Container(
-            width: 145,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              color: kSecondaryColor,
-            ),
-            child: AspectRatio(
-              aspectRatio: 0.8,
-              child: Column(
-                children: <Widget>[
-                  AspectRatio(
-                    aspectRatio: 1,
-                    child: FadeInImage.assetNetwork(
-                      placeholder: "assets/spinner.gif",
-                      image: product.image,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          FutureBuilder(
+            future: fetchProducts(),
+            builder: (context, snapshot) => snapshot.hasData
+                ? RecommendProducts(product: snapshot.data)
+                : Center(child: Image.asset("assets/ripple.gif")),
+          )
         ],
       ),
     );
