@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:furniture_app/components/title_text.dart';
 import 'package:furniture_app/services/fetchCategories.dart';
 import 'package:furniture_app/services/fetchProduct.dart';
-import 'package:furniture_app/view/components/product_list.dart';
-import 'categories.dart';
+import 'home/components/categories.dart';
+import 'home/components/product_list.dart';
 
 class BodyHomepage extends StatelessWidget {
   @override

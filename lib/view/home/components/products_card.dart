@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:furniture_app/components/title_text.dart';
 import 'package:furniture_app/models/product.dart';
 
-import '../../constants.dart';
-import '../../size_config.dart';
+import '../../../constants.dart';
+import '../../../size_config.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({

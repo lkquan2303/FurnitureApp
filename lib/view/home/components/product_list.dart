@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/models/product.dart';
 import 'package:furniture_app/size_config.dart';
-import 'package:furniture_app/view/components/products_card.dart';
+import 'package:furniture_app/view/home/components/products_card.dart';
 
 class RecommendProducts extends StatelessWidget {
   const RecommendProducts({
