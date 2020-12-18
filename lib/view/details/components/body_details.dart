@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/models/product.dart';
 import 'package:furniture_app/size_config.dart';
+import 'package:furniture_app/view/details/components/product_description.dart';
+import 'package:furniture_app/view/details/components/product_infor.dart';
 
 class BodyDetailsScreen extends StatelessWidget {
   final Product product;
@@ -12,91 +12,34 @@ class BodyDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double defaultSize = SizeConfig.defaultSize;
     return SingleChildScrollView(
-        child: Column(
-      children: [ProductInfor(product: product)],
-    ));
-  }
-}
-
-class ProductInfor extends StatelessWidget {
-  const ProductInfor({
-    Key key,
-    @required this.product,
-  }) : super(key: key);
-
-  final Product product;
-
-  @override
-  Widget build(BuildContext context) {
-    TextStyle lightTextStyle = TextStyle(
-      color: kTextColor.withOpacity(0.6),
-    );
-    double defaultSize = SizeConfig.defaultSize;
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: defaultSize * 2),
-      height: defaultSize * 37.5,
-      width: defaultSize * 15,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
+        child: SizedBox(
+      height: SizeConfig.screenHeight - AppBar().preferredSize.height,
+      width: double.infinity,
+      child: Stack(
         children: [
-          Text(
-            product.category.toUpperCase(),
-            style: lightTextStyle,
+          ProductInfor(product: product),
+          Positioned(
+            top: defaultSize * 37.5,
+            left: 0,
+            right: 0,
+            child:
+                ProductDescription(defaultSize: defaultSize, product: product),
           ),
-          SizedBox(height: defaultSize),
-          Text(
-            product.title,
-            style: TextStyle(
-              fontSize: defaultSize * 2.4,
-              fontWeight: FontWeight.bold,
-              letterSpacing: -0.8,
-              height: 1.4,
+          Positioned(
+            top: defaultSize * 9,
+            right: -defaultSize * 1.5,
+            child: Hero(
+              tag: product.id,
+              child: Image.network(
+                product.image,
+                fit: BoxFit.cover,
+                height: defaultSize * 37.8,
+                width: defaultSize * 36.4,
+              ),
             ),
-          ),
-          SizedBox(height: defaultSize * 2),
-          Text(
-            "From",
-            style: lightTextStyle,
-          ),
-          Text(
-            "\$${product.price}",
-            style: TextStyle(
-              fontSize: defaultSize * 1.6,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(
-            height: defaultSize * 2,
-          ),
-          Text("Availble Colors"),
-          AvailbleColors(defaultSize: defaultSize)
+          )
         ],
       ),
-    );
-  }
-}
-
-class AvailbleColors extends StatelessWidget {
-  const AvailbleColors({
-    Key key,
-    @required this.defaultSize,
-  }) : super(key: key);
-
-  final double defaultSize;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 8),
-      padding: const EdgeInsets.all(4),
-      height: defaultSize * 2.4,
-      width: defaultSize * 2.4,
-      decoration: BoxDecoration(
-        color: Colors.blue,
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: SvgPicture.asset("assets/icons/check.svg"),
-    );
+    ));
   }
 }
