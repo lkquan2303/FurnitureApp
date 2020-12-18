@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/size_config.dart';
-import 'package:furniture_app/view/components/bodyhomepage.dart';
+
+import 'bodyhomepage.dart';
 
 class Homepage extends StatelessWidget {
   @override

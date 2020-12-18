@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/components/title_text.dart';
 import 'package:furniture_app/models/categories.dart';
-
 import '../../../constants.dart';
 import '../../../size_config.dart';
 import 'category_custom_shape.dart';
